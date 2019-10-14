@@ -58,7 +58,9 @@
     <link rel="icon" href="/img/w-logo.png">
 
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content="this is lightWey">
+    <meta name="description" itemprop="description" content="问题起因由于MAC OS和Linux在文件系统上的差异[^文件系统]上的差别，和MAC OS系统本身版本导致的文件系统差异，Docker for mac专门提供了File system sharing，简称osxfs[^osxfs]，osxfs是Docker for Mac专用的新共享文件系统解决方案。 osxfs提供了接近本机的用户体验，可将安装的macOS文件系统树绑定到Docker容器中。为此，它osxfs具有许多独特的功能以及与传统Linux文件系统的不同之处。
+由于文件系统API非常广泛（20-40种消息类型），具有许多复杂的语义，涉及磁盘状态，内存中的缓存状态以及多个进程的并发访问。此外，osxfs集成了macOS的FSEvents API和Linux的inotifyAPI之间的映射，该映射是在文件系统本身内部实现的，从而使事情进一步复杂化，尤其是缓存行为。
+可以理解成osxfs是一个翻译层，它对mac OS和Linux做了文件系统的映射。当然，这也就是问题的原因所在了。">
     <meta name="keywords" content=",PHP,Docker,Docker-sync">
     <meta name="theme-color" content="#0097A7">
 
@@ -239,7 +241,9 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="关于docker for mac 磁盘性能问题 | lightWey">
     <meta property="og:image" content="/img/w-logo.png">
-    <meta property="og:description" content="this is lightWey">
+    <meta property="og:description" content="问题起因由于MAC OS和Linux在文件系统上的差异[^文件系统]上的差别，和MAC OS系统本身版本导致的文件系统差异，Docker for mac专门提供了File system sharing，简称osxfs[^osxfs]，osxfs是Docker for Mac专用的新共享文件系统解决方案。 osxfs提供了接近本机的用户体验，可将安装的macOS文件系统树绑定到Docker容器中。为此，它osxfs具有许多独特的功能以及与传统Linux文件系统的不同之处。
+由于文件系统API非常广泛（20-40种消息类型），具有许多复杂的语义，涉及磁盘状态，内存中的缓存状态以及多个进程的并发访问。此外，osxfs集成了macOS的FSEvents API和Linux的inotifyAPI之间的映射，该映射是在文件系统本身内部实现的，从而使事情进一步复杂化，尤其是缓存行为。
+可以理解成osxfs是一个翻译层，它对mac OS和Linux做了文件系统的映射。当然，这也就是问题的原因所在了。">
     <meta property="og:article:tag" content="PHP"> <meta property="og:article:tag" content="Docker"> <meta property="og:article:tag" content="Docker-sync"> 
 
     
@@ -286,7 +290,9 @@
         }
     },
     "keywords": ",PHP,Docker,Docker-sync",
-    "description": "this is lightWey",
+    "description": "问题起因由于MAC OS和Linux在文件系统上的差异[^文件系统]上的差别，和MAC OS系统本身版本导致的文件系统差异，Docker for mac专门提供了File system sharing，简称osxfs[^osxfs]，osxfs是Docker for Mac专用的新共享文件系统解决方案。 osxfs提供了接近本机的用户体验，可将安装的macOS文件系统树绑定到Docker容器中。为此，它osxfs具有许多独特的功能以及与传统Linux文件系统的不同之处。
+由于文件系统API非常广泛（20-40种消息类型），具有许多复杂的语义，涉及磁盘状态，内存中的缓存状态以及多个进程的并发访问。此外，osxfs集成了macOS的FSEvents API和Linux的inotifyAPI之间的映射，该映射是在文件系统本身内部实现的，从而使事情进一步复杂化，尤其是缓存行为。
+可以理解成osxfs是一个翻译层，它对mac OS和Linux做了文件系统的映射。当然，这也就是问题的原因所在了。",
 }
 </script>
 
@@ -510,6 +516,8 @@
         <h2 id="问题起因"><a href="#问题起因" class="headerlink" title="问题起因"></a>问题起因</h2><p>由于<code>MAC OS</code>和<code>Linux</code>在文件系统上的差异[^文件系统]上的差别，和<code>MAC OS</code>系统本身版本导致的文件系统差异，<code>Docker for mac</code>专门提供了<code>File system sharing</code>，简称<code>osxfs</code>[^osxfs]，<br><code>osxfs</code>是<code>Docker for Mac</code>专用的新共享文件系统解决方案。 <code>osxfs</code>提供了接近本机的用户体验，可将安装的<code>macOS</code>文件系统树绑定到<code>Docker</code>容器中。为此，它<code>osxfs</code>具有许多独特的功能以及与传统<code>Linux</code>文件系统的不同之处。</p>
 <p>由于文件系统API非常广泛（20-40种消息类型），具有许多复杂的语义，涉及磁盘状态，内存中的缓存状态以及多个进程的并发访问。此外，<code>osxfs</code>集成了<code>macOS</code>的<code>FSEvents API</code>和<code>Linux</code>的<code>inotifyAPI</code>之间的映射，该映射是在文件系统本身内部实现的，从而使事情进一步复杂化，尤其是缓存行为。</p>
 <p>可以理解成<code>osxfs</code>是一个翻译层，它对<code>mac OS</code>和<code>Linux</code>做了文件系统的映射。当然，这也就是问题的原因所在了。</p>
+<a id="more"></a>
+
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>更具<code>docker</code>官方文档里面的介绍,由于<code>osxfs</code>作为的是解释层，那么在大量的IO的时候，就容易产生性能的瓶颈，因为解释层是一直要保持两个文件系统之间的一致性的，所以解决方案就可以从这里来着手。目前市面上有两套解决方案：</p>
 <h3 id="docker-sync"><a href="#docker-sync" class="headerlink" title="docker-sync"></a>docker-sync</h3><p><code>docker-sync</code>这边又提出来了一个概念，叫<code>native_osx</code>简称<code>OSX</code>,它其实是两个概念的组合，即<code>osxfs</code>和<code>Unison</code>的组合，具体的就是通过<code>osxfs</code>来同步宿主机和容器的双向修改，也就是<code>host_sync</code>，然后通过<code>Unison</code>来同步<code>host_sync</code>和<code>app_sync</code>，<code>app_sync</code>作为命名的卷安装公开，然后其他的容器就可以绑定这个卷了。由于在容器中使用<code>Unison</code>，基于<code>inotify-event</code>的观察程序的作用，<code>Unison</code>的性能可以达到很好的程度，具体原理如下[^docker-sync]</p>
 <p><img src="https://docker-sync.readthedocs.io/en/latest/_images/native_osx.png" alt="图片1"></p>

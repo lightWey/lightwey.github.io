@@ -318,7 +318,9 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-            问题起因
+            问题起因由于MAC OS和Linux在文件系统上的差异[^文件系统]上的差别，和MAC OS系统本身版本导致的文件系统差异，Docker for mac专门提供了File system sharing，简称osxfs[^osxfs]，osxfs是Docker for Mac专用的新共享文件系统解决方案。 osxfs提供了接近本机的用户体验，可将安装的macOS文件系统树绑定到Docker容器中。为此，它osxfs具有许多独特的功能以及与传统Linux文件系统的不同之处。
+由于文件系统API非常广泛（20-40种消息类型），具有许多复杂的语义，涉及磁盘状态，内存中的缓存状态以及多个进程的并发访问。此外，osxfs集成了macOS的FSEvents API和Linux的inotifyAPI之间的映射，该映射是在文件系统本身内部实现的，从而使事情进一步复杂化，尤其是缓存行为。
+可以理解成osxfs是一个翻译层，它对mac OS和Linux做了文件系统的映射。当然，这也就是问题的原因所在了。
         
         &nbsp;&nbsp;&nbsp;
         <span>
