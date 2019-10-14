@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://imsun.github.io">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            通俗解释CRC | 
+        
+        lightWey
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/w-logo.png">
+    <link rel="icon" href="/img/w-logo.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="通俗解释CRC起因今天看以太网相关的资料，看到了这样一句话
+
+对于以太网，第二层的最后面是CRC，也就是循环冗余检测。通过 XOR 异或的算法，来 计算整个包是否在发送的过程中出现了错误，主要解决第三个问题。
+
+对CRC一脸茫然，然后整理了下相关资料">
+    <meta name="keywords" content=",CRC,循环冗余检测">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: ;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="lightWey">
+    <meta name="msapplication-starturl" content="https://lightwey.github.io/2019/08/02/通俗解释CRC/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="lightWey">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="https://lightwey.github.io/2019/08/02/通俗解释CRC/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="通俗解释CRC | lightWey">
+    <meta property="og:image" content="/img/w-logo.png">
+    <meta property="og:description" content="通俗解释CRC起因今天看以太网相关的资料，看到了这样一句话
+
+对于以太网，第二层的最后面是CRC，也就是循环冗余检测。通过 XOR 异或的算法，来 计算整个包是否在发送的过程中出现了错误，主要解决第三个问题。
+
+对CRC一脸茫然，然后整理了下相关资料">
+    <meta property="og:article:tag" content="CRC"> <meta property="og:article:tag" content="循环冗余检测"> 
+
+    
+        <meta property="article:published_time" content="Fri Aug 02 2019 17:32:34 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 02 2019 17:32:34 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html",
+    "headline": "通俗解释CRC",
+    "datePublished": "Fri Aug 02 2019 17:32:34 GMT+0800",
+    "dateModified": "Fri Aug 02 2019 17:32:34 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "lightWey",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/cxk-avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "lightWey",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/w-logo.png"
+        }
+    },
+    "keywords": ",CRC,循环冗余检测",
+    "description": "通俗解释CRC起因今天看以太网相关的资料，看到了这样一句话
+
+对于以太网，第二层的最后面是CRC，也就是循环冗余检测。通过 XOR 异或的算法，来 计算整个包是否在发送的过程中出现了错误，主要解决第三个问题。
+
+对CRC一脸茫然，然后整理了下相关资料",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#通俗解释CRC"><span class="post-toc-number">1.</span> <span class="post-toc-text">通俗解释CRC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#起因"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">起因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现原理"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">实现原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些集成概念"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">一些集成概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FCS"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">FCS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成多项式"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">生成多项式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常见的生成多项式"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">常见的生成多项式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模2运算"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">模2运算</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实践"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">实践</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算生成多项式二进制表示求法"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">计算生成多项式二进制表示求法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计算帧检验序列"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">计算帧检验序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成CRC码"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">生成CRC码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#校验"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">校验</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                通俗解释CRC
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/cxk-avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>lightWey</strong>
+        <span>8月 02, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC6UlEQVR42u3aQZLbMAwEQP//08kDEmtnQDmRydZpSytLbF6mAPD168jrhY2NjY2NjY2Njf1I9iu+/nz++j3vnn/35NvlBm+4XjM2Njb2Cezkw8mvrt92TU22e2nN2NjY2Aewk0/m7CSort98HZb1mrGxsbGxg+eTkiCPunZrsLGxsbFzdv6rlVBs14ONjY2NPYuTaMgaFBizEP1HvTRsbGzsx7PbQe8T/v4P821sbGzsR7LXoyiJpZUR8iwy//ItbGxs7E3Zs5Ftexwzv9+2mYq3YWNjY2/Knr0uaQnlraJZyVG3q7CxsbE3Zc9a7XlzZ7ZleWQmx4OwsbGx92bn5UFyUOauwUM7Zo6ewcbGxt6UPTtY2R7HWWkkJSVN9F9sbGzsTdlJUK0EXv6GlU2PCipsbGzsTdlJ2ORD3zbS8tHybPyMjY2NfRo7arIvt5/ydlLeqEqiFxsbG/sEdhJg+RGcvGGUb8GrvLCxsbFPYLeHddrCo23iz4JqON/GxsbG3oKdN+jbDWqbSm1Q1WUMNjY29qbs9kDMrJDI77ekG3IbGxsb+8vZs4FrEm9t6yc/UjkMRWxsbOxN2fcWGHe1olY2/SPjAWxsbOwvZLdNnE8c5WmHyjcMerGxsbG/nJ3HUv53MgZoBwk3HL7ExsbG3og9C6c22Nbvz8bA2NjY2Oewk5/NBrEr5UobbD98HRsbG3tTdh4P7digHR7Mou6Gw5fY2NjYG7HbRbdH4dtCoj3c88M2YWNjY2/KTprsK3G1UoTMtqkYD2BjY2NvwW6vnJqPdde3fim3sbGxsb+c/Yqv65BIWvwrd9pvFbmNjY2NvQU7D572Tt6oygfMw69gY2NjH8CehVbyhqS11Daw2iOY2NjY2Nj5QvOtyX81+y42NjY2dlIGtGPjJJDaLUvKKmxsbOwT2G1TaX1ZUQkxCkhsbGzs09jtoLdt989aVO2I9+PzbWxsbOxHss+5sLGxsbGxsbGxsR9z/QZs6Wg6gwHZRAAAAABJRU5ErkJggg==">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/CRC/">CRC</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/循环冗余检测/">循环冗余检测</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=通俗解释CRC&url=https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html&pic=https://lightwey.github.io/img/w-logo.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=通俗解释CRC&url=https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html&via=lightWey" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://lightwey.github.io/2019/08/02/通俗解释CRC/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="通俗解释CRC"><a href="#通俗解释CRC" class="headerlink" title="通俗解释CRC"></a>通俗解释CRC</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>今天看以太网相关的资料，看到了这样一句话</p>
+<blockquote>
+<p>对于以太网，第二层的最后面是<code>CRC</code>，也就是循环冗余检测。通过 <code>XOR</code> 异或的算法，来 计算整个包是否在发送的过程中出现了错误，主要解决第三个问题。</p>
+</blockquote>
+<p>对<code>CRC</code>一脸茫然，然后整理了下相关资料</p>
+<a id="more"></a>
+
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>循环冗余校验（Cyclic redundancy check）通称<code>CRC</code>，是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种散列函数，主要用来检测或校验数据传输或者保存后可能出现的错误。生成的数字在传输或者存储之前计算出来并且附加到数据后面，然后接收方进行检验确定数据是否发生变化。</p>
+<p><code>CRC</code>检验原理实际上就是在一个<code>k</code>位二进制数据序列之后附加一个<code>r</code>位二进制检验码(序列)，从而构成一个总长为<code>n＝k＋r</code>位的二进制序列；附加在数据序列之后的这个检验码与数据序列的内容之间存在着某种特定的关系。如果因干扰等原因使数据序列中的某一位或某些位发生错误，这种特定关系就会被破坏。因此，通过检查这一关系，就可以实现对数据正确性的检验。</p>
+<p>结构如下图所示</p>
+<p><img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D250/sign=69198db8bda1cd1101b675258913c8b0/a50f4bfbfbedab64928a2448f036afc378311eb9.jpg" alt="CRC"></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p><code>CRC</code>同其他差错检测方式一样，通过在要传输的k比特数据D后添加(n-k)比特冗余位F（FCS），F形成n比特的传输帧T，再将其发送。</p>
+<p>不同的是，<code>CRC</code>提供一个预先设定的<code>n-k+1</code>比特的整数<code>P</code>，并要求添加的长度为<code>n-k</code>比特的<code>F</code>满足以下公式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">T mod P == 0......(1)</span><br><span class="line"></span><br><span class="line">T = 2^n-k*D+F</span><br></pre></td></tr></table></figure>
+
+<p>基于上述要求，实际应用时，发送方和接收方按以下方式通信：</p>
+<ol>
+<li>发送方和接收方在通信前，约定好预设整数P。</li>
+<li>发送方在发送前根据数据D确定满足(1)式的F，生成CRC码 T，T 即为数据位D与校验位F的拼接，发送T。</li>
+<li>接收方收到CRC码 T，进行 result = T mod P 运算，当且仅当result = 0时接收方认为没有差错。</li>
+</ol>
+<h2 id="一些集成概念"><a href="#一些集成概念" class="headerlink" title="一些集成概念"></a>一些集成概念</h2><h3 id="FCS"><a href="#FCS" class="headerlink" title="FCS"></a>FCS</h3><p>Frame Check Sequence（帧校验序列）百度百科里面写的挺复杂的，其实就是一个为了进行差错校验而追加的冗余码</p>
+<h3 id="生成多项式"><a href="#生成多项式" class="headerlink" title="生成多项式"></a>生成多项式</h3><blockquote>
+<p>生成多项式（generator polynomial）就是用来把要进行防错处理的二进制码流进行转换生成校验码，然后接收方会收到原始的二进制码流和校验码，按照与发送方相同的多项式再次进行转换生成校验码，与发来的校验码进行比较。如果一致则说明接收到的二进制码流是正确的；反之则说明接收到的二进制码流包含错误。</p>
+</blockquote>
+<p>在<code>CRC</code>这块来说，就是发送方和接收方共同的约定一个模2运算的除数。</p>
+<h4 id="常见的生成多项式"><a href="#常见的生成多项式" class="headerlink" title="常见的生成多项式"></a>常见的生成多项式</h4><table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">生成多项式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CRC-1</td>
+<td align="left">×+1</td>
+</tr>
+<tr>
+<td align="left">CRC-3-GSM</td>
+<td align="left">x³+x+1</td>
+</tr>
+<tr>
+<td align="left">CRC-4-ITU</td>
+<td align="left">x∧4+x+1</td>
+</tr>
+<tr>
+<td align="left">CRC-5-EPC</td>
+<td align="left">x∧5+x³+1</td>
+</tr>
+<tr>
+<td align="left">CRC-6-GSM</td>
+<td align="left">x∧6+x∧5+x³+x²+x+1</td>
+</tr>
+<tr>
+<td align="left">CRC-7</td>
+<td align="left">x∧7+x³+1</td>
+</tr>
+<tr>
+<td align="left">CRC-8</td>
+<td align="left">x∧8+x∧7+x∧6+x∧4+x²+x+1</td>
+</tr>
+<tr>
+<td align="left">CRC-11</td>
+<td align="left">x∧11+x∧9+x∧8+x∧7+x∧4+x²+1</td>
+</tr>
+<tr>
+<td align="left">CRC-12</td>
+<td align="left">x∧12+x∧11+x³+x²+x+1</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>CRC-1其实就是大名鼎鼎的奇偶校验，是一种特殊的循环冗余校验</p>
+</blockquote>
+<h3 id="模2运算"><a href="#模2运算" class="headerlink" title="模2运算"></a>模2运算</h3><blockquote>
+<p>模2运算是一种二进制算法，CRC校验技术中的核心部分。与四则运算相同，模2运算也包括模2加、模2减、模2乘、模2除四种二进制运算。而且，模2运算也使用与四则运算相同的运算符，即“+”表示模2加，“－”表示模2减，“×”或“·”表示模2乘，“÷”或“/”表示模2除。与四则运算不同的是模2运算不考虑进位和借位，即模2加法是不带进位的二进制加法运算，模2减法是不带借位的二进制减法运算。这样，两个二进制位相运算时，这两个位的值就能确定运算结果，不受前一次运算的影响，也不对下一次造成影响。</p>
+</blockquote>
+<p>在<code>CRC</code>中主要就是模2除运算，简单介绍下吧</p>
+<p>主要就是做<code>XRO</code>(异或)，只是除的时候，并不是真的除，而是用异或来做的，相同为0，不同为1 方法如下所示</p>
+<p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=e86d3c898b18367ab984778f4f1ae0b1/f3d3572c11dfa9ecd22fa7b76fd0f703918fc109.jpg" alt="模2除法"></p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>假设我们要发送的信息码（数据）<code>D</code> = <code>111101</code> 我们采用<code>CRC-3-GSM</code>生成多项式<code>G</code> = <code>x³+x+1</code>进行计算，这个时候我们需要计算出生成多项式对应的二进制位表示。</p>
+<h3 id="计算生成多项式二进制表示求法"><a href="#计算生成多项式二进制表示求法" class="headerlink" title="计算生成多项式二进制表示求法"></a>计算生成多项式二进制表示求法</h3><blockquote>
+<p>对于任意k位二进制数D =dk-1…d2d1d0，其对应的多项式为</p>
+</blockquote>
+<blockquote>
+<p>D(X) = ∑di*Xi，i∊[0, k) …… (7)</p>
+</blockquote>
+<p>实际上我们计算的时候，可以使用一点捷径，最简单就是查看以高幂作为长度然后判断每个位置上有没有对应的幂，举个例子.<br>比如 ，这个表达式的最高次幂是6，我们把这个表达式转化一成这样的<code>x^6 + x^5 + x^4 + x^3 + x^2 +x^1 + x^0</code>，然后带入表达式中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x^6 有吗   有 1</span><br><span class="line">x^5 有吗   有 1</span><br><span class="line">x^4 有吗 没有 0</span><br><span class="line">x^3 有吗   有 1</span><br><span class="line">x^2 有吗   有 1</span><br><span class="line">x^1 有吗   有 1</span><br><span class="line">x^0 有吗   有 1</span><br></pre></td></tr></table></figure>
+
+<p>组合在一起，然后我们的生成多项式是<code>x∧6+x∧5+x³+x²+x+1</code>的二进制表示就是<code>1101111</code></p>
+<p>所以不难求出生成多项式<code>G</code>的二进制表示就是 <code>1011</code>，占<code>4</code>位，计做<code>R</code>=<code>4</code></p>
+<h3 id="计算帧检验序列"><a href="#计算帧检验序列" class="headerlink" title="计算帧检验序列"></a>计算帧检验序列</h3><p>这个地方的余数，值得是进行模2除法运算之后的余数，我们暂时管它叫<code>F</code></p>
+<p>首先我们需要左移信息码，左移位数是生成多项式最高幂，给<code>D</code>左移3位，得到<code>111101000</code></p>
+<p>然后我们用左移之后的信息位对生成多项式G做模2除法运算，就可得到帧检验序列（冗余码）<code>F</code>，作为余数，<code>F</code>的位数必须是<code>R - 1</code>，如果位数不足，那么在高位补<code>0</code>。</p>
+<p>商不用关，余数是<code>10</code>，由于这里R是<code>4</code>，所以需要在高位补<code>0</code>，凑齐<code>3</code>位，结果就是<code>010</code></p>
+<p>结题过程如下：</p>
+<p><img src="https://dev.tencent.com/u/lightWay/p/notebook/git/raw/master/imageHost/2019/08/1.jpg" alt="求解过程"></p>
+<h3 id="生成CRC码"><a href="#生成CRC码" class="headerlink" title="生成CRC码"></a>生成CRC码</h3><p>我们把信息码和帧检验序列连接起来就是我们所说的<code>CRC</code>码.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T= D + F</span><br></pre></td></tr></table></figure>
+
+<p>这个地方我们的<code>CRC</code>码就是<code>111101010</code></p>
+<h3 id="校验"><a href="#校验" class="headerlink" title="校验"></a>校验</h3><p>当接收方收到数据后，用收到的数据<code>T</code>对G（事先约定好的生成多项式）进行模2除法，若余数为0，则认为数据传输无差错；若余数不为0，则认为数据传输出现了错误，由于不知道错误发生在什么地方，因而不能进行自动纠正，一般的做法是丢弃接收的数据。</p>
+<p><img src="https://dev.tencent.com/u/lightWay/p/notebook/git/raw/master/imageHost/2019/08/2.jpg" alt="校验结果"></p>
+<p>我们这里使用<code>111101010</code>对<code>111101</code>做模2除法，可以看到余数为0。代表我们这条数据传输没问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一整套下来，不难发现，其实这个原理是很简单的，就是在原有数据基础上加了校验位，然后数据接收方，通过校验位来检测数据的完整性。</p>
+<p>在日常生活中我们也经常用到，比如有时候客户端传参的时候，会对特定参数做MD5比对啊，甚至<code>CSRF</code>都可以看做是一类方式，只是CRC是公开的，主要用来检测数据完整性，我们平时的传参的一些骚操作是为了检测数据的正确性，都是一个道理。</p>
+<hr>
+<p><strong>转载请注明出处：</strong><a href="lightwey.cn/2019/08/02/通俗解释CRC">lightwey.cn/2019/08/02/通俗解释CRC</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 gitcoment -->
+<div id="gitment-comment">
+    <!-- Gitment 评论框 -->
+<div id="container"></div>
+</div>
+<style>
+    #gitment-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="/js/gitment.min.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: decodeURI(location.pathname), // 可选。默认为 location.href
+        owner: 'lightWey',
+        repo: 'comment_repository',
+        oauth: {
+            client_id: '9e273a6eca84479a7c25',
+            client_secret: 'cf38aa5ecee3ce253786f0d26346341440353ca0',
+        },
+    })
+    gitment.render('container')
+</script>
+
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/10/14/%E5%85%B3%E4%BA%8Edocker%20for%20mac%20%E7%A3%81%E7%9B%98%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/07/03/PHP%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/cxk-avatar.png" alt="lightWey's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        lightWay.zhi@gmailcom
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/08/">八月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/06/">六月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/04/">四月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/02/">二月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/08/">八月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">6</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/工具/">工具<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/Docker/">Docker<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/docker/">docker<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/命令行/">命令行<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/工具/抓包/">抓包<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/操作系统/">操作系统<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/">算法<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/PHP/">PHP<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/算法/PHP/冒泡排序/">冒泡排序<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/系统/">系统<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/设计模式/">设计模式<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/设计模式/控制反转/">控制反转<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/语言/">语言<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/categories/语言/PHP/">PHP<span class="sidebar_archives-count">9</span></a></li><li><a class="sidebar_archives-link" href="/categories/语言/javaScript/">javaScript<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/语言/正则表达式/">正则表达式<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">20</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;lightWey
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- Gitment -->
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?color=white');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
